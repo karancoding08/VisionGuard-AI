@@ -1,0 +1,27 @@
+# Byte-compiled / Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# YOLO weights (auto-downloaded by Ultralytics when missing)
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# VisionGuard AI user uploads and generated outputs
+uploads/*
+!uploads/.gitkeep
+outputs/*
+!outputs/.gitkeep
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
