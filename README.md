@@ -135,7 +135,7 @@ After launching, open your browser at `http://localhost:8501`.
 
 ---
 
-## 👨‍💻 Developer & Attribution
+## Developer & Attribution
 
 Developed by **Karan** ([@karancoding08](https://github.com/karancoding08)) as a Major Computer Science & Artificial Intelligence Project. 
 
