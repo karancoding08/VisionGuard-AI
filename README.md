@@ -6,7 +6,7 @@
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 **VisionGuard AI** is an advanced, production-grade video intelligence platform engineered for automated object detection, multi-object tracking (MOT), and analytical summary generation. 
 
@@ -14,26 +14,26 @@ Built using **YOLOv8** (State-of-the-Art Deep Learning Detector) and **ByteTrack
 
 ---
 
-## ✨ Key Features & Technical Innovations
+## Key Features & Technical Innovations
 
-### 1. 🛡️ 3-Stage Noise Reduction & False Positive Filtering
+### 1. 3-Stage Noise Reduction & False Positive Filtering
 To ensure high accuracy in complex indoor/outdoor environments, a custom 3-stage validation pipeline was implemented:
 - **Spatial Dimension Sanity:** Bounding boxes smaller than 10x10 pixels or total area $< 300\text{ px}^2$ are automatically pruned as sensor noise.
 - **Rolling Confidence Variance Gate:** Monitors confidence score variance ($\sigma^2$) across rolling 4-frame windows. Detections exhibiting high erratic variance ($> 0.015$) are flagged as unstable and suppressed.
 - **Consecutive Frame Persistence:** Requires an object track to persist for at least **2 consecutive frames** before validating its physical presence, eliminating 1-frame glitches (e.g., misinterpreting a chair as a bed or a car as a train).
 
-### 2. 🗳️ Temporal Majority Voting for Class Jitter
+### 2. Temporal Majority Voting for Class Jitter
 Deep learning object detectors can occasionally flicker between class labels across consecutive frames (e.g., `Car` $\rightarrow$ `Train` $\rightarrow$ `Car`).
 - Implemented a per-track class history buffer using `collections.Counter`.
 - Automatically assigns the **statistical mode (most frequent label)** observed across the object's entire trajectory, guaranteeing zero label flickering.
 
-### 3. 🎯 Configurable Detection Modes
+### 3. Configurable Detection Modes
 The inference engine supports target filtering prior to annotation and statistics calculation:
 - **All Objects:** Tracks all 80 COCO dataset classes dynamically.
 - **People Only:** Strictly filters and tracks `person` instances.
 - **Vehicles Only:** Focuses exclusively on traffic objects (`car`, `bus`, `truck`, `motorcycle`, `bicycle`).
 
-### 4. ⚡ Single-Pass Streaming Architecture
+### 4. Single-Pass Streaming Architecture
 Optimized for live demonstration on standard CPU/GPU setups:
 - Single-pass video decoding and writing without storing raw frame buffers in memory.
 - In-place canvas annotation (`in_place=True`) to minimize RAM allocation overhead.
@@ -41,7 +41,7 @@ Optimized for live demonstration on standard CPU/GPU setups:
 
 ---
 
-## 📐 System Architecture
+## System Architecture
 
 ```mermaid
 flowchart TD
@@ -65,7 +65,7 @@ flowchart TD
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 VisionGuard-AI/
@@ -81,7 +81,7 @@ VisionGuard-AI/
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Python 3.11+ installed
@@ -112,7 +112,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Running the Application
+## Running the Application
 
 Execute the following command in your terminal:
 
@@ -124,7 +124,7 @@ After launching, open your browser at `http://localhost:8501`.
 
 ---
 
-## 📊 Performance & System Verification
+## Performance & System Verification
 
 | Parameter | Value / Default | Details |
 |---|---|---|
